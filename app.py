@@ -5,7 +5,8 @@ from groq import Groq
 
 # load API key
 load_dotenv()
-client = Groq(api_key=os.getenv("GROQ_API_KEY"))
+api_key = st.secrets.get("GROQ_API_KEY") or os.getenv("GROQ_API_KEY")
+client = Groq(api_key=api_key)
 
 # page config
 st.set_page_config(page_title="Sanmi AI Chatbot", page_icon="🤖")
